@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'posts/index'
+  root 'posts#index'
 
-  get 'posts/create'
+  resources :posts, only: [:create]
+
+  get 'tags/:tag', to: 'posts#index', as: 'tag'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
